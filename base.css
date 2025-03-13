@@ -1,0 +1,58 @@
+/*----------------nav bar---------------------*/
+.topnav{
+    overflow: hidden;
+    background-color: lightgray;
+    margin-bottom: 7px;
+    display: flex;
+    justify-content: flex-end;
+}
+.topnav a{
+    float: right;
+    color: rgb(185, 89, 151);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.topnav a:hover{
+    background-color: darkgray;
+    color: black;
+}
+.topnav a.active{
+    background-color: darkslategrey;
+    color: white;
+}
+.Home{
+    float: left;
+    overflow: hidden;
+}
+.Home .Home-1{
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+.Home-dropdown{
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    z-index: 1;
+}
+.Home-dropdown a{
+    float: none;
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+.Home:hover .Home-dropdown{
+    display: block;
+}
+a{
+    font-size: min(4vw, 16px);
+    width: 150px; 
+    height: 40px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
