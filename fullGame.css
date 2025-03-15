@@ -32,6 +32,10 @@ h1 {
     box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+.box.active {
+    background-color: var(--pink); /* Color when clicked */
+}
+
 .box:hover {
     background-color: var(--pink);
 }

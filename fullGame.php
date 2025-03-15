@@ -45,6 +45,7 @@
     $group4 = $game['group4']['items'];
 
     $cardArray = array_merge($group1, $group2, $group3, $group4);
+    shuffle($cardArray);
 
     // insert the cards in a randomized order
     $cardContainer = $dom->getElementById('cardContainer');
@@ -52,6 +53,20 @@
         $buttonEl = $dom->createElement('button',$card);
         $buttonEl->setAttribute('type','button');
         $buttonEl->setAttribute('class', 'box');
+        $buttonEl->setAttribute('id', 'card-' . md5($card)); //give each button a unique id
+        
+        if (in_array($card, $group1)) {
+            $buttonEl->setAttribute('data-group-id', '1');
+        }
+        elseif (in_array($card, $group2)) {
+            $buttonEl->setAttribute('data-group-id', '2');
+        }
+        elseif (in_array($card, $group3)) {
+            $buttonEl->setAttribute('data-group-id', '3');
+        }
+        elseif (in_array($card, $group4)) {
+            $buttonEl->setAttribute('data-group-id', '4');
+        }
 
         $cardContainer->appendChild($buttonEl);
     }
