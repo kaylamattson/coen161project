@@ -1,0 +1,40 @@
+.container{
+    background-color: var(--tan);
+    justify-content: center;
+    gap: 30px;
+    padding: 4%;
+    max-width: 600px;
+    margin: 2px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 7%;
+}
+.box{
+    background-color: var(--tan);
+    color: var(--blue);
+    padding: 20px;
+    width: 270px;
+    height: 100px;
+    font-size: 2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+}
+.box:hover {
+    background-color: var(--pink);
+    transform: scale(1.05);
+}
+#quit {
+    position: fixed;
+    bottom: 11px;
+    right: 11px;
+    z-index: 20000;
+    white-space: nowrap;
+    width: 230px;
+    height: 50px;
+    font-size: 1.5em;
+}
