@@ -104,6 +104,13 @@ function gameOver() {
     document.getElementById('success2').style.display = "block";
     document.getElementById('success3').style.display = "block";
     document.getElementById('success4').style.display = "block";
+
+    //set delay times in case they changed
+    document.getElementById('success1').style.animationDelay = "0.5s";
+    document.getElementById('success2').style.animationDelay = "1s";
+    document.getElementById('success3').style.animationDelay = "1.5s";
+    document.getElementById('success4').style.animationDelay = "2s";
+
     document.getElementById('mistakes').style.display = "none";
     document.getElementById('results-button-container').style.display = "block";
     document.querySelectorAll('.box').forEach(box => {
@@ -200,6 +207,7 @@ function successfulConnection() {
     })
     const success = document.querySelector(`[data-name="${lastCardGroupName}"]`);
     document.getElementById(success.id).style.display = "block";
+    document.getElementById(success.id).style.animationDelay = "0.5s";
 }
 
 function mistake() {
