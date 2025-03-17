@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DIY Connections</title>
+        <link rel = "stylesheet" type = "text/css" href = "createAccount.css"/>
+        <link rel = "stylesheet" type = "text/css" href = "base.css"/>
+    </head>
+    <body>
+        <div class = "topnav">
+            <div class = "Home">
+                <a class="Home-1" href="home.html">Home</a>
+                <div class = "Home-dropdown">
+                    <a href="contact.html">Contact Us</a>
+                    <a href="login.html">Log In</a>
+                </div>
+            </div>
+            <a href="game.html">Game</a>
+            <a href="make.html">Create</a>
+            <a href="tutorial.html">How To</a>
+            <a href="leaderboard.html">Leaderboard</a>
+        </div>
+
+        <div class = "container">
+            <h1>Create an Account</h1>
+            <form action="createAccount.php" method="POST">
+                
+                <!-- Full Name -->
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required>
+
+                <!-- Email -->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <!-- Username (Optional) -->
+                <label for="username">Username (Optional):</label>
+                <input type="text" id="username" name="username">
+
+                <!-- Password -->
+                <label for="password">Password:</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required onkeyup="checkPasswordStrength()">
+                    <button type="button" class="toggle-password" onclick="togglePassword('password')">👁️</button>
+                </div>
+                <div id="password-strength"></div>
+
+                <!-- Confirm Password -->
+                <label for="confirm-password">Confirm Password:</label>
+                <div class="password-container">
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('confirm-password')">👁️</button>
+                </div>
+                
+
+                <!-- Submit Button -->
+                <button type="submit">Sign Up</button>
+            </form>
+
+            <p>Already have an account? <a href="login.html">Log in here</a></p>
+        </div>
+
+        <script>
+            function togglePassword(fieldId) {
+                let passwordField = document.getElementById(fieldId);
+                passwordField.type = passwordField.type === "password" ? "text" : "password";
+            }
+
+            function checkPasswordStrength() {
+                let password = document.getElementById("password").value;
+                let strength = document.getElementById("password-strength");
+                let strongPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+                if (strongPattern.test(password)) {
+                    strength.textContent = "Password strength: Strong 💪";
+                    strength.style.color = "green";
+                } else if (password.length >= 6) {
+                    strength.textContent = "Password strength: Medium 🤔";
+                    strength.style.color = "orange";
+                } else {
+                    strength.textContent = "Password strength: Weak 😢";
+                    strength.style.color = "red";
+                }
+            }
+        </script>
+            
+        
+    </body>
+</html>

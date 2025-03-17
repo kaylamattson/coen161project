@@ -1,0 +1,121 @@
+/* Center the login form */
+.container {
+    background: white;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Title */
+h1 {
+    color: var(--blue);
+    margin-bottom: 20px;
+}
+
+/* Style form elements */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Style labels */
+label {
+    text-align: left;
+    font-weight: bold;
+    color: var(--blue);
+}
+
+/* Input fields */
+input {
+    width: 100% -5px;
+    padding: 10px;
+    border: 1px solid var(--mint);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Password container with toggle button */
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    flex: 1;
+    
+}
+
+.toggle-password {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--blue);
+    padding: 5px;
+    width: 10%;
+}
+
+/* Remember Me Checkbox */
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+/* Forgot Password */
+.forgot-password {
+    text-decoration: none;
+    color: var(--pink);
+    font-size: 14px;
+    text-align: right;
+    display: block;
+    margin-left: auto;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Login button */
+button {
+    width: 100%;
+    background: var(--blue);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #0c3a3f;
+}
+
+/* Sign up link */
+p {
+    font-size: 14px;
+}
+
+p a {
+    color: var(--pink);
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+}
+
+p a:hover {
+    text-decoration: underline;
+}

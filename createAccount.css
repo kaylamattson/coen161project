@@ -1,0 +1,113 @@
+/* Center the form */
+.container {
+    background: white;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Title */
+h1 {
+    color: var(--blue);
+    margin-bottom: 20px;
+}
+
+/* Style form elements */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Style labels */
+label {
+    text-align: left;
+    font-weight: bold;
+    color: var(--blue);
+}
+
+/* Input fields */
+input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid var(--mint);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Focus effect */
+input:focus {
+    border-color: var(--pink);
+    outline: none;
+}
+
+/* Password container with toggle button */
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    flex: 1;
+    
+}
+
+.toggle-password {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--blue);
+    padding: 5px;
+    width: 10%;
+}
+
+/* Password strength indicator */
+#password-strength {
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: -5px;
+}
+
+/* Sign Up button */
+button {
+    width: 100%;
+    background: var(--blue);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #0c3a3f;
+}
+
+/* Already have an account? */
+p {
+    font-size: 14px;
+}
+
+p a {
+    color: var(--pink);
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+}
+
+p a:hover {
+    text-decoration: underline;
+}

@@ -23,6 +23,8 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    margin: 1%;
+    
 }
 .box:hover {
     background-color: var(--pink);
@@ -30,11 +32,37 @@
 }
 #quit {
     position: fixed;
-    bottom: 11px;
-    right: 11px;
+    bottom: 20px;
+    right: 20px;
     z-index: 20000;
     white-space: nowrap;
     width: 230px;
-    height: 50px;
-    font-size: 1.5em;
+    height: 65px;
+    font-size: 1.7em;
+    
+}
+
+@media (max-width: 600px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        
+    }
+    .box {
+        width: 100%;
+    }
+}
+@media (max-width: 900px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        
+    }
+    .box {
+        width: 70%;
+    }
 }
