@@ -23,18 +23,36 @@
         </div>
         <h1 id="title"></h1>
         <div class = "container" id="cardContainer">
+            <div class="successfulConnection" id="success1">asdfs</div>
+            <div class="successfulConnection" id="success2">asdfs</div>
+            <div class="successfulConnection" id="success3">asdfs</div>
+            <div class="successfulConnection" id="success4">asdfs</div>
         </div>
-        <div class="mistakes-container">Mistakes Remaining:
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
+        <div class = "results-box" id="resultsContainer">
+            <div class="stats" id="results">
+                <div class="item">
+                    <div class="number" id="completed"></div>
+                    <div class="text">Completed</div>
+                </div>
+                <div class="item">
+                    <div class="number" id="winPercent"></div>
+                    <div class="text">Win %</div>
+                </div>
+            </div>
+        </div>
+        <div class="mistakes-container" id="mistakes">Mistakes Remaining:
+            <div class="circle" id="circle"></div>
+            <div class="circle" id="circle"></div>
+            <div class="circle" id="circle"></div>
+            <div class="circle" id="circle"></div>
+        </div>
+        <div class="results-container" id="results-button-container">
+            <button type="button" class="results-btn" id="results-btn">View Results</button>
         </div>
         <div class = "control-container">
-            <button type = "button" class = "control-btn">Shuffle</button>
-            <button type = "button" class = "control-btn">Deselect All</button>
-            <button type = "button" class = "control-btn">Submit</button>
+            <button type = "button" class = "control-btn" id="shuffle-btn">Shuffle</button>
+            <button type = "button" class = "control-btn" id="deselect-btn">Deselect All</button>
+            <button type = "button" class = "control-btn" id="submit-btn">Submit</button>
         </div>
     </body>
 </html>

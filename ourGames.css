@@ -1,0 +1,45 @@
+.game-list {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.game-item {
+    background: #f9f9f9;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    border-bottom: 1px solid #ddd;
+    max-height: 400px;  
+    overflow-y: auto;  
+}
+
+.game-item:last-child {
+    border-bottom: none;
+}
+
+.game-item:hover {
+    background: #e0e0e0;
+    transform: scale(1.02);
+}
+
+.game-title {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.game-description {
+    font-size: 16px;
+    color: #666;
+}
