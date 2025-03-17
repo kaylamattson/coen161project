@@ -26,21 +26,17 @@
             <form action="createAccount.php" method="POST">
                 
                 <!-- Full Name -->
-                <label for="fullname">Full Name:</label>
-                <input type="text" id="fullname" name="fullname" required>
+                <label for="userName">Full Name:</label>
+                <input type="text" id="fullname" name="userName" required>
 
                 <!-- Email -->
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
 
-                <!-- Username (Optional) -->
-                <label for="username">Username (Optional):</label>
-                <input type="text" id="username" name="username">
-
                 <!-- Password -->
-                <label for="password">Password:</label>
+                <label for="userPassword">Password:</label>
                 <div class="password-container">
-                    <input type="password" id="password" name="password" required onkeyup="checkPasswordStrength()">
+                    <input type="password" id="password" name="userPassword" required onkeyup="checkPasswordStrength()">
                     <button type="button" class="toggle-password" onclick="togglePassword('password')">👁️</button>
                 </div>
                 <div id="password-strength"></div>
@@ -63,7 +59,7 @@
         <script>
             function togglePassword(fieldId) {
                 let passwordField = document.getElementById(fieldId);
-                passwordField.type = passwordField.type === "password" ? "text" : "password";
+                passwordField.type = passwordField.type === "userPassword" ? "text" : "userPassword";
             }
 
             function checkPasswordStrength() {
