@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DIY Connections</title>
+        <link rel = "stylesheet" type = "text/css" href = "ourGames.css"/>
+        <link rel = "stylesheet" type = "text/css" href = "base.css"/>
+        <script src="madeVersion.js" defer></script>
+    </head>
+    <body>
+        <div class = "topnav">
+            <div class = "Home">
+                <a class="Home-1" href="home.html">Home</a>
+                <div class = "Home-dropdown">
+                    <a href="contact.html">Contact Us</a>
+                    <a href="login.html">Log In</a>
+                </div>
+            </div>
+            <a class="active" href="game.html">Game</a>
+            <a href="make.html">Create</a>
+            <a href="tutorial.html">How To</a>
+            <a href="leaderboard.html">Leaderboard</a>
+        </div>
+        <div class="game-list" id="gameList">
+            <button onclick="window.location.href='fullGame.php?id=1';" class="game-item">
+                <p class="game-description">An exciting adventure game set in a futuristic world.</p>
+            </button>
+            <button class="game-item">
+                <p class="game-description">A fast-paced racing game with stunning visuals.</p>
+            </button>
+            <button class="game-item">
+                <p class="game-description">A strategic puzzle game that challenges your mind.</p>
+            </button>
+            <button class="game-item">
+                <p class="game-description">A fantasy RPG filled with magical quests and battles.</p>
+            </button>
+        </div>
+    </body>
+</html>
