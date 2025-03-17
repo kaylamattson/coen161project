@@ -18,30 +18,26 @@
 
     // retreive one of our games
     $game = null;
-    $filename = 'ourGame.html';
+    $filename = 'ourGames.html';
     $dom = new DOMDocument();
     $dom->loadHTMLFile($filename);
+
     if (isset($data['ourGames'])) {
         $gameContainer = $dom->getElementById('gameList');
         // Loop through the 'ourGames' array
         foreach ($data['ourGames'] as $game) {
-            // Access and display the title of each game
-            echo "Game Title: " . $game['title'] . "<br>";
-
             // insert the games into the buttons in the html page
             $buttonEl = $dom->createElement('button');
             $buttonEl->setAttribute('type','button');
             $buttonEl->setAttribute('class', 'game-item');
-            echo $buttonEl;
 
             $pEl = $dom->createElement('p');
-            $textNode = $dom->createTextNode(htmlspecialchars($game['title']));
+            $title = str_replace("'", "'", htmlspecialchars($game['title'], ENT_NOQUOTES, 'UTF-8'));// Convert special characters to HTML entities
+            $textNode = $dom->createTextNode($title);
             $pEl->appendChild($textNode);
             $pEl->setAttribute('class', 'game-description');
             
             // Append the paragraph to the button
-            echo $pEl;
-            echo $buttonEl;
             $buttonEl->appendChild($pEl);
             
             // Set the 'onclick' attribute for the button with dynamic URL
