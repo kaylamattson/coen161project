@@ -1,40 +1,130 @@
-.container{
-    background-color: var(--tan);
-    justify-content: center;
-    gap: 30px;
-    padding: 4%;
-    max-width: 600px;
-    margin: 2px auto;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 7%;
-}
-.box{
-    background-color: var(--tan);
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--gray); 
     color: var(--blue);
+    margin: 0;
+    padding-bottom: 100px;
+}
+
+/* Container */
+.container {
+    text-align: center;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
     padding: 20px;
-    width: 270px;
-    height: 100px;
-    font-size: 2em;
-    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Headings */
+h1 {
+    color: var(--blue);
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: var(--blue);
+    margin: 15px 0 5px;
+}
+
+/* Inputs */
+input {
+    width: 80%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 2px solid var(--mint); 
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: var(--mint);
+}
+
+/* Buttons */
+button {
+    padding: 8px 15px;
+    margin: 5px;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
 }
+
+.box {
+    background-color: var(--pink); 
+    color: white;
+    border: 2px solid var(--blue);
+}
+
 .box:hover {
-    background-color: var(--pink);
-    transform: scale(1.05);
+    background-color: var(--blue); 
 }
-#quit {
-    position: fixed;
-    bottom: 11px;
-    right: 11px;
-    z-index: 20000;
-    white-space: nowrap;
-    width: 230px;
-    height: 50px;
-    font-size: 1.5em;
+
+#titleContainer{
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--tan); 
+    text-align: center;
+    min-height: 40px;
+    
+}
+
+
+.categoryContainer {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--tan); 
+    text-align: center;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#cat1, #cat2, #cat3, #cat4 {
+    display: none;
+}
+
+.enteredWordsContainer {
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.enteredWordsContainer button {
+    background-color: var(--mint); 
+    color: white;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 6px;
+}
+
+.enteredWordsContainer button:hover {
+    background-color: var(--blue);
+}
+
+@media (max-width: 800px) {
+    .enteredWordsContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .categoryContainer {
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+        align-items: center;
+        width: 100%;
+    }
 }
