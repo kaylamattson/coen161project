@@ -60,6 +60,9 @@ function cardClicked(event) {
 
 // check if each element in the connection matches the correct answer. if yes, add
 function submitConnection() {
+    if (clickedCards.length != 4) {
+        return;
+    }
     const submitBtn = document.getElementById('submit-btn');
     submitBtn.classList.toggle("active");
     console.log("last card id", lastCardId);
@@ -141,6 +144,7 @@ function viewResults() {
     document.getElementById('resultsContainer').style.display = "block";
 
 }
+
 
 function deselect() {
     clickedCards.forEach(card => {
