@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $dom->loadHTMLFile($filename);
     
         $nav = $dom->getElementById("userGreeting");
-        $userGreeting = $dom->createElement("h3", "Welcome" . $userName . "!");
+        $userGreeting = $dom->createElement("h3", "Welcome " . $userName . "!");
         //$userGreeting->setAttribute("class", "errorTxt");
 
         // $errorTxt->nodeValue = "";

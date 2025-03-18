@@ -9,14 +9,14 @@
         // $_SESSION["userScore"] = 0;
 
 
-        $filename = "make.html";
-        if(!(file_exists($filename))){
-            echo "FILE: $filename does NOT exists";
-            exit;
-        };
+        // $filename = "make.html";
+        // if(!(file_exists($filename))){
+        //     echo "FILE: $filename does NOT exists";
+        //     exit;
+        // };
 
-        $dom = new DOMDocument();
-        $dom->loadHTMLFile($filename);
+        // $dom = new DOMDocument();
+        // $dom->loadHTMLFile($filename);
        
        
         // $title = $dom->getElementById('titleContainer');
@@ -145,7 +145,7 @@
 
         
        
-        $filename = "game.html";//idk man maybe do a new page then press continue and send to somewhere else
+        $filename = "home.html";//idk man maybe do a new page then press continue and send to somewhere else
         if(!(file_exists($filename))){
             echo "FILE: $filename does NOT exists";
             exit;
