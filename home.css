@@ -40,6 +40,11 @@
     transform: scale(1.05);
 }
 
+#userGreeting h3{
+    text-align: center;
+    
+}
+
 @media (max-width: 600px) {
     .container {
         display: flex;

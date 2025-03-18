@@ -30,6 +30,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pdo = new PDO('sqlite:' . $databaseFile);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        $table = "CREATE TABLE IF NOT EXISTS users ( 
+            userName TEXT NOT NULL, 
+            email TEXT NOT NULL,
+            userPassword TEXT NOT NULL,
+            gamesPlayed INTEGER,
+            score INTEGER
+        )";
+
+        $pdo->exec($table); 
         // Prepare SQL statement to insert user data into database
         $sql = "INSERT INTO users (userName, email, userPassword, gamesPlayed, score) VALUES (:userName, :email, :userPassword, :gamesPlayed, :score)";
         $stmt = $pdo->prepare($sql);
@@ -73,12 +82,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->execute();
                
         
-            echo "Account created successfully!";
+           // echo "Account created successfully!";
         }
     
             
         
+        $filename = "home.html";
+        if(!(file_exists($filename))){
+            echo "FILE: $filename does NOT exists";
+            exit;
+        };
 
+        $dom = new DOMDocument();
+        $dom->loadHTMLFile($filename);
+    
+        $nav = $dom->getElementById("userGreeting");
+        $userGreeting = $dom->createElement("h3", "Welcome" . $userName . "!");
+        //$userGreeting->setAttribute("class", "errorTxt");
+
+        // $errorTxt->nodeValue = "";
+        $nav->appendChild($userGreeting);
+
+        //$heading->nodeValue = $article_saved["title"];
+    
+        header('Content-Type: text/html');
+        echo $dom->saveHTML();
 
         // $query = "SELECT * FROM users";
         // $stmt = $pdo->prepare($query);
