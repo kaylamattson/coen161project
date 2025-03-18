@@ -15,6 +15,11 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* added by steph */
+.errorTxt{
+    color: red;
+}
+
 /* Style form elements */
 form {
     display: flex;
