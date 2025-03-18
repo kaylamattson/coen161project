@@ -19,24 +19,24 @@ try{
     $insertQuery = "INSERT INTO users (userName, email, userPassword) VALUES (:userName, :email, :userPassword)";
     $stmt = $pdo->prepare($insertQuery);
 
-    $sampleUsers = [
-        ['userName' => 'Kayla Mattson', 'email' => 'john@example.com', 'userPassword' => password_hash('password123', PASSWORD_DEFAULT)],
-        ['userName' => 'Jane Smith', 'email' => 'jane@example.com', 'userPassword' => password_hash('mypassword456', PASSWORD_DEFAULT)]
-    ];
+    // $sampleUsers = [
+    //     ['userName' => 'Kayla Mattson', 'email' => 'john@example.com', 'userPassword' => password_hash('password123', PASSWORD_DEFAULT)],
+    //     ['userName' => 'Jane Smith', 'email' => 'jane@example.com', 'userPassword' => password_hash('mypassword456', PASSWORD_DEFAULT)]
+    // ];
 
-    foreach ($sampleUsers as $user) {
-        // Bind values to the placeholders in the SQL query
-        $stmt->bindValue(':userName', $user['userName']);
-        $stmt->bindValue(':email', $user['email']);
-        $stmt->bindValue(':userPassword', $user['userPassword']);
-        $stmt->execute();
-        echo "Sample user \"{$user['userName']}\" inserted.<br>";
-    }
+    // foreach ($sampleUsers as $user) {
+    //     // Bind values to the placeholders in the SQL query
+    //     $stmt->bindValue(':userName', $user['userName']);
+    //     $stmt->bindValue(':email', $user['email']);
+    //     $stmt->bindValue(':userPassword', $user['userPassword']);
+    //     $stmt->execute();
+    //     echo "Sample user \"{$user['userName']}\" inserted.<br>";
+    // }
 
-    $selectQuery = "SELECT * FROM users";
-    $stmt = $pdo->prepare($selectQuery);
-    $stmt->execute();        
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // $selectQuery = "SELECT * FROM users";
+    // $stmt = $pdo->prepare($selectQuery);
+    // $stmt->execute();        
+    // $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     //var_dump($users);
 
 }

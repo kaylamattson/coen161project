@@ -32,13 +32,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO users (userName, email, userPassword) VALUES (:userName, :email, :userPassword)";
         $stmt = $pdo->prepare($sql);
 
-        $stmt->bindValue(':userName', $user['userName']);
-        $stmt->bindValue(':email', $user['email']);
-        $stmt->bindValue(':userPassword', $user['userPassword']);
+        $stmt->bindValue(':userName', $userName);
+        $stmt->bindValue(':email', $email);
+        $stmt->bindValue(':userPassword', $hashedPassword);
         $stmt->execute();
        
 
         echo "Account created successfully!";
+
+
+        $query = "SELECT * FROM users";
+        $stmt = $pdo->prepare($query);
+        // $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // foreach ($users as $user) {
+        //     // Bind values to the placeholders in the SQL query
+        //     echo (':userName' . $user['userName'] . "\n");
+        //     echo (':email' . $user['email'] . "\n");
+        //     echo (':userPassword' . $user['userPassword'] . "\n");
+
+           
+        //     echo("print 1 \n");
+        // }
+
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
