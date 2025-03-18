@@ -68,6 +68,7 @@ function createCategoryButton(categoryId, categoryName){
     
     return;
 }
+
 document.getElementById("categoryInput")?.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
         let categoryTerm = event.target.value.trim();
@@ -96,9 +97,19 @@ function createWordButton(text, categoryId, wordIndex){
     let button = document.createElement("button");
     button.classList.add("box"); 
     button.textContent = text; 
+    //button.setAttribute("id", wordIndex+1 . );
 
     let wordsContainer = document.getElementById(`wordsContainer${categoryId}`);
     wordsContainer.appendChild(button);
+
+    if (!Array.isArray(enteredWords[categoryId - 1])) {
+        enteredWords[categoryId - 1] = []; // Initialize the category array
+    }
+    
+    enteredWords[categoryId-1][wordIndex] = text;
+    console.log("category", categoryId-1);
+    console.log("wordIndex", wordIndex);
+    console.log(enteredWords[1][1]);
 
     // Add event listener to remove the word when clicked
     button.addEventListener("click", () => {
@@ -107,7 +118,7 @@ function createWordButton(text, categoryId, wordIndex){
     
 
 }
-function replaceWord(categoryId, button){
+function replaceWord(categoryId, wordIndex, button){
     let newWord = prompt("Enter a replacement word:");
     
     if (!newWord || newWord.trim() === "") {
@@ -135,7 +146,7 @@ function replaceCategory(categoryId, button){
     button.textContent = newCat;
     
 }
-
+/*
 document.getElementById("wordInput")?.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
         let searchTerm = event.target.value.trim();
@@ -184,8 +195,114 @@ document.getElementById("wordInput")?.addEventListener("keypress", (event) => {
 
     }
 });
+*/
+
+document.getElementById("wordInput")?.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+        let searchTerm = event.target.value.trim();
+        if (searchTerm === "") {
+            alert("Invalid input! Please make sure you enter a word.");
+            return;
+        }
+        if (categoryCount < 1) {
+            alert("You must add a category before entering words!");
+            return;
+        }
+        if (wordCount >= 16) {
+            alert("You have entered all your words and categories! Get ready to play your game!");
+            return;
+        }
+
+        let currentCategory = Math.floor(wordCount / 4);
+
+        // 🛠 Fix: Ensure `enteredWords[currentCategory]` exists before pushing words
+        if (!enteredWords[currentCategory]) {
+            enteredWords[currentCategory] = []; // Initialize array
+        }
+
+        let wordIndex =  enteredWords[currentCategory].length; // Use length as index
+
+        enteredWords[currentCategory].push(searchTerm);
+        createWordButton(searchTerm, currentCategory + 1, wordIndex);
+
+        wordCount++;
+        event.target.value = "";
+    }
+});
 
 
 
+/*
+async function saveToJsonFile() {
+    const fileName = "game_data.json";
+    let existingData = [];
+
+    // Try to fetch the existing JSON file
+    try {
+        const response = await fetch(fileName);
+        if (response.ok) {
+            existingData = await response.json();
+        }
+    } catch (error) {
+        console.log("No existing file found, creating a new one.");
+    }
+
+    // Construct new game data
+    const newGameData = {
+        id: Date.now().toString().slice(-6), // Unique ID
+        title: enteredTitle,
+        group1: enteredCategories[0] || "Category 1",
+        items1: (enteredWords[0] || []).join(", "), 
+        group2: enteredCategories[1] || "Category 2",
+        items2: (enteredWords[1] || []).join(", "),
+        group3: enteredCategories[2] || "Category 3",
+        items3: (enteredWords[2] || []).join(", "),
+        group4: enteredCategories[3] || "Category 4",
+        items4: (enteredWords[3] || []).join(", ")
+    };
+
+    // Append new game data to existing data
+    existingData.push(newGameData);
+
+    // Convert to JSON string
+    const jsonData = JSON.stringify(existingData, null, 4);
+
+    // Create a Blob with updated JSON data
+    const blob = new Blob([jsonData], { type: "application/json" });
+
+    // Create a download link for updated JSON (overwrites the same file)
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    console.log("New game added:", newGameData);
+}
+*/
+// Create a button to trigger JSON save
+const saveButton = document.createElement("button");
+saveButton.textContent = "Save Game";
+saveButton.classList.add("box");
+saveButton.addEventListener("click", (event) => {
+    //saveToJsonFile();
+    // foreach(enteredWords as wordslist){
+
+    // }
+    //const i;
+    //const hiddenList = dom.getElementById("hidden");
+    for(let i = 0; i < wordCount; i++){
+        //for(let j = 0; j < enteredWords[i].length; j++){
+        console.log(wordCount);
+        //let itemsList = document.getElementById(`${i}`);
+        let itemsList = document.getElementById(`wordsContainer${i + 1}`);
+        console.log(itemsList);
+        itemsList.textContent = enteredWords[i][0] + ", " + enteredWords[i][1] + ", " + enteredWords[i][2] + ", " + enteredWords[i][3] + ", ";
+        //}
+    }
+});
 
 
+// Append button to container
+document.querySelector(".container").appendChild(saveButton);
