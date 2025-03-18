@@ -113,6 +113,10 @@ button {
     background-color: var(--blue);
 }
 
+.hidden{
+    display: hidden;
+}
+
 @media (max-width: 800px) {
     .enteredWordsContainer{
         display: flex;
