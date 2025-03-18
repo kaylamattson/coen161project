@@ -10,13 +10,15 @@ try{
     $table = "CREATE TABLE IF NOT EXISTS users ( 
         userName TEXT NOT NULL, 
         email TEXT NOT NULL,
-        userPassword TEXT NOT NULL
+        userPassword TEXT NOT NULL,
+        gamesPlayed INTEGER,
+        score INTEGER
     )";
     // changed userName and userPassword
     $pdo->exec($table);
     echo "Database created successfully.";
 
-    $insertQuery = "INSERT INTO users (userName, email, userPassword) VALUES (:userName, :email, :userPassword)";
+    $insertQuery = "INSERT INTO users (userName, email, userPassword, gamesPlayed, score) VALUES (:userName, :email, :userPassword, :gamesPlayed, :score)";
     $stmt = $pdo->prepare($insertQuery);
 
     // $sampleUsers = [
