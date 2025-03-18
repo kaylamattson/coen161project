@@ -51,7 +51,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // $sql = "INSERT INTO users (userName, email, userPassword, gamesPlayed, score) VALUES (:userName, :email, :userPassword, :gamesPlayed, :score)";
         // $stmt = $pdo->prepare($sql);
 
-        
+        $table = "CREATE TABLE IF NOT EXISTS users ( 
+            userName TEXT NOT NULL, 
+            email TEXT NOT NULL,
+            userPassword TEXT NOT NULL,
+            gamesPlayed INTEGER,
+            score INTEGER
+        )";
+
+        $pdo->exec($table); 
+
         $sql = "SELECT * FROM users WHERE email = :email";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':email', $email);
@@ -83,7 +92,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $user = $users[0];
             $hashedPass = $user["userPassword"];
             if(!password_verify($userPassword, $hashedPass)){
-                echo("Login failed!");
+               // echo("Login failed!");
+               $loginBool = false;
+
 
 
             }else{
@@ -93,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["userEmail"] = $email;
                 $_SESSION["userGamesPlayed"] = $user["gamesPlayed"];
                 $_SESSION["userScore"] = $user["score"];
-                echo("You have sucessufully logged in, " . $user["userName"] . "<br>");
+                // echo("You have sucessufully logged in, " . $user["userName"] . "<br>");
             }
           
 
@@ -116,7 +127,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $dom = new DOMDocument();
         $dom->loadHTMLFile($filename);
-    
+
+        $nav = $dom->getElementById("userGreeting");
+        // echo("You have sucessufully logged in, " . $user["userName"] . "<br>");
+        $userGreeting = $dom->createElement("h3", "You have sucessufully logged in, " . $user["userName"] . "");
+        //$userGreeting->setAttribute("class", "errorTxt");
+        $nav->appendChild($userGreeting);
     
     
         header('Content-Type: text/html');

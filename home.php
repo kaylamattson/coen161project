@@ -7,6 +7,8 @@
         $_SESSION["userEmail"] = "NULL";
         $_SESSION["userGamesPlayed"] = 0;
         $_SESSION["userScore"] = 0;
+        $_SESSION["login"] = false;
+        
 
         //change below
         try {
@@ -52,43 +54,9 @@
         $dom->loadHTMLFile($filename);
        
        
-        $articleDiv = $dom->getElementById('articleDiv');
-        $heading = $dom->getElementById('title'); 
-        if($heading == NULL){
-            echo "FILE: $filename cannot find the h1 'title' tag element";
-            exit;
-        };
-
-       
-        $tagList = $dom->getElementById('all_buttons');
-        if($tagList == NULL){
-            echo "FILE: $filename cannot find the ul tag element";
-        };
-
-        //article tag for text content
-        $articleContent = $dom->getElementById('articleTxt'); 
-        if($articleContent == NULL){
-            echo "FILE: $filename cannot find the article tag element";
-            exit;
-        };
         
         
-
-
-      
-        $heading->nodeValue = $lastestArticle["title"];
-       
-        foreach ($tagsArray as $tag) { 
-            
-            $button = $dom->createElement("button");
-            $button->setAttribute('class', 'tag');
-            $button->nodeValue = $tag;
-            $tagItem = $dom->createElement("li");
-            $tagItem->appendChild($button);
-             
-            $tagList->appendChild($tagItem);
-        }
-
+    
         $fragment = $dom->createDocumentFragment();
         $substringTxt = substr(strip_tags($lastestArticle["content"]), 0, 500) . '...';
         $fragment->appendXML($substringTxt);
