@@ -22,10 +22,10 @@
     $dom = new DOMDocument();
     $dom->loadHTMLFile($filename);
 
-    if (isset($data['ourGames'])) {
+    if (isset($data)) {
         $gameContainer = $dom->getElementById('gameList');
         // Loop through the 'ourGames' array
-        foreach ($data['ourGames'] as $game) {
+        foreach ($data as $game) {
             // insert the games into the buttons in the html page
             $buttonEl = $dom->createElement('button');
             $buttonEl->setAttribute('type','button');
