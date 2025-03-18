@@ -89,9 +89,9 @@ button {
     align-items: center;
     flex-wrap: wrap;
 }
-#cat1, #cat2, #cat3, #cat4 {
+/* #cat1, #cat2, #cat3, #cat4 {
     display: none;
-}
+} */
 
 .enteredWordsContainer {
     color: white;

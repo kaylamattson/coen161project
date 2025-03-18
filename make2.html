@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DIY Connections</title>
+        <link rel = "stylesheet" type = "text/css" href = "make.css"/>
+        <link rel = "stylesheet" type = "text/css" href = "base.css"/>
+        <script defer src="make.js"></script>
+    </head>
+
+    <body>
+        <div class = "topnav">
+            <div class = "Home">
+                <a class="Home-1" href="home.html">Home</a>
+                <div class = "Home-dropdown">
+                    <a href="contact.html">Contact Us</a>
+                    <a href="login.html">Log In</a>
+                </div>
+            </div>
+            <a href="game.html">Game</a>
+            <a class = "active" href="make.html">Create</a>
+            <a href="tutorial.html">How To</a>
+            <a href="leaderboard.html">Leaderboard</a>
+        </div>
+    
+        <div class = "container">
+            <h1>Create your own game here!</h1>
+            <p>Instructions: Type a category followed by the corresponding four words in that category and then repeat until you have entered four categories and sixteen words. <br> <br> 
+                Make sure that the four words after a category correspond to that category! <br> <br> 
+                If you would like to remove a word, you can click on it and then enter a new one.</p>
+            <h3>Enter your title:</h3>
+            <input id="titleInput" type="text" placeholder="Enter your title...">
+            
+            <h3>Enter your categories(4):</h3>
+            <input id="categoryInput" type="text" placeholder="Enter your category...">
+
+            <h3>Enter your words(16):</h3>
+            <input id="wordInput" type="text" placeholder="Enter four words...">
+
+
+            <div class = "enteredWordsContainer" id="titleContainer"></div>
+
+            <div class = "categoryContainer" id = "cat1">
+                <div id="categoryButton1" class="categoryButton"></div>
+                <div class = "enteredWordsContainer" id="wordsContainer1"></div>
+            </div>
+
+            <div class = "categoryContainer" id = "cat2">
+                <div id="categoryButton2" class="categoryButton"></div>
+                <div class = "enteredWordsContainer" id="wordsContainer2"></div>
+            </div>
+
+            <div class = "categoryContainer" id = "cat3">
+                <div id="categoryButton3" class="categoryButton"></div>
+                <div class = "enteredWordsContainer" id="wordsContainer3"></div>
+            </div>
+
+            <div class = "categoryContainer" id = "cat4">
+                <div id="categoryButton4" class="categoryButton"></div>
+                <div class = "enteredWordsContainer" id="wordsContainer4"></div>
+            </div>
+
+            <div id = "hidden">
+               <p id = "0"> </p>
+               <p id = "1"> </p>
+               <p id = "2"> </p>
+               <p id = "3"> </p>
+            </div>
+        </div>
+    </body>
+</html>
