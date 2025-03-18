@@ -1,96 +1,50 @@
-{
-    "ourGames": [
-        {
-            "id": "1",
-            "title": "First Connection!",
-            "tags": ["art", "design", "crafts"],
-            "group1": {
-                "id": 1,
-                "group": "Impose, as a penalty",
-                "items": ["assess", "charge", "fine", "levy"]
-            },
-            "group2": {
-                "id": 2,
-                "group": "Checkout line impulse buys",
-                "items": ["candy", "chapstick", "charging cable", "magazine"]
-            },
-            "group3": {
-                "id": 3,
-                "group": "Movies of various lengths",
-                "items": ["jaws", "hunger games", "divergent", "harry potter"]
-            },
-            "group4": {
-                "id": 4,
-                "group": "Roads",
-                "items": ["dirt", "high", "rocky", "silk"]
-            }
-        },
-        {
-            "id": "2",
-            "title": "Game Night",
-            "tags": ["fun", "puzzles", "trivia"],
-            "group1": {
-                "id": 1,
-                "group": "Board Games",
-                "items": ["Monopoly", "Clue", "Catan", "Risk"]
-            },
-            "group2": {
-                "id": 2,
-                "group": "Card Games",
-                "items": ["Poker", "Uno", "Bridge", "Go Fish"]
-            },
-            "group3": {
-                "id": 3,
-                "group": "Video Game Genres",
-                "items": ["RPG", "Shooter", "Puzzle", "Sports"]
-            },
-            "group4": {
-                "id": 4,
-                "group": "Common Game Pieces",
-                "items": ["Dice", "Meeple", "Token", "Card"]
-            }
-        },
-        {
-            "id": "3",
-            "title": "Let's Eat!",
-            "tags": ["food", "cooking", "kitchen"],
-            "group1": {
-                "group": "Types of Pasta",
-                "items": ["Spaghetti", "Fettuccine", "Penne", "Rigatoni"]
-            },
-            "group2": {
-                "group": "Common Pizza Toppings",
-                "items": ["Pepperoni", "Mushroom", "Olives", "Bell Peppers"]
-            },
-            "group3": {
-                "group": "Breakfast Foods",
-                "items": ["Pancakes", "Omelette", "Bagel", "Cereal"]
-            },
-            "group4": {
-                "group": "Kitchen Utensils",
-                "items": ["Whisk", "Spatula", "Ladle", "Tongs"]
-            }
-        },
-        {
-            "id": "4",
-            "title": "On the Move",
-            "tags": ["travel", "transportation", "vehicles"],
-            "group1": {
-                "group": "Modes of Public Transport",
-                "items": ["Bus", "Subway", "Tram", "Ferry"]
-            },
-            "group2": {
-                "group": "Car Brands",
-                "items": ["Toyota", "Ford", "Honda", "Tesla"]
-            },
-            "group3": {
-                "group": "Airport Necessities",
-                "items": ["Passport", "Luggage", "Boarding Pass", "Security Check"]
-            },
-            "group4": {
-                "group": "Types of Roads",
-                "items": ["Highway", "Boulevard", "Avenue", "Street"]
-            }
-        }
-    ]
-}
+[
+    {
+        "id": "1",
+        "title": "First Connection!",
+        "group1": "Impose, as a penalty",
+        "items1": ["assess", "charge", "fine", "levy"],
+        "group2": "Checkout line impulse buys",
+        "items2": ["candy", "chapstick", "charging cable", "magazine"],
+        "group3": "Movies of various lengths",
+        "items3": ["jaws", "hunger games", "divergent", "harry potter"],
+        "group4": "Roads",
+        "items4": ["dirt", "high", "rocky", "silk"]
+    },
+    {
+        "id": "2",
+        "title": "Simple Animals",
+        "group1": "Pets",
+        "items1": ["dog", "cat", "hamster", "fish"],
+        "group2": "Farm Animals",
+        "items2": ["cow", "sheep", "chicken", "pig"],
+        "group3": "Wild Animals",
+        "items3": ["lion", "tiger", "elephant", "zebra"],
+        "group4": "Insects",
+        "items4": ["bee", "ant", "butterfly", "spider"]
+    },
+    {
+        "id": "3",
+        "title": "Basic Colors",
+        "group1": "Primary Colors",
+        "items1": ["red", "blue", "yellow"],
+        "group2": "Secondary Colors",
+        "items2": ["green", "orange", "purple"],
+        "group3": "Warm Colors",
+        "items3": ["red", "orange", "yellow"],
+        "group4": "Cool Colors",
+        "items4": ["blue", "green", "purple"]
+    },
+    {
+        "id": "4",
+        "title": "Fruits",
+        "group1": "Citrus Fruits",
+        "items1": ["orange", "lemon", "lime", "grapefruit"],
+        "group2": "Berries",
+        "items2": ["strawberry", "blueberry", "raspberry", "blackberry"],
+        "group3": "Tropical Fruits",
+        "items3": ["pineapple", "mango", "papaya", "banana"],
+        "group4": "Stone Fruits",
+        "items4": ["peach", "cherry", "plum", "apricot"]
+    }
+]
