@@ -2,14 +2,16 @@
 // Assuming you already have a database connection set up
 //include('db_connection.php');
 $databaseFile = 'connection.db';
-echo "hi";
+// echo "hi";
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo "hi1";
+    // echo "hi1";
     // Collect and sanitize input
     $userName = htmlspecialchars($_POST['userName']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $email = strtolower($email);
+    
     $userPassword = $_POST['userPassword'];
     $confirmPassword = $_POST['confirm-password'];
 
@@ -29,24 +31,61 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Prepare SQL statement to insert user data into database
-        $sql = "INSERT INTO users (userName, email, userPassword) VALUES (:userName, :email, :userPassword)";
+        $sql = "INSERT INTO users (userName, email, userPassword, gamesPlayed, score) VALUES (:userName, :email, :userPassword, :gamesPlayed, :score)";
         $stmt = $pdo->prepare($sql);
 
-        $stmt->bindValue(':userName', $userName);
-        $stmt->bindValue(':email', $email);
-        $stmt->bindValue(':userPassword', $hashedPassword);
-        $stmt->execute();
-       
 
-        echo "Account created successfully!";
+        $countQuery = "SELECT count(*) FROM users WHERE email = :email";
+        $countStmt = $pdo->prepare($countQuery);
 
-
-        $query = "SELECT * FROM users";
-        $stmt = $pdo->prepare($query);
-        // $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
+        // $query = "SELECT * FROM users";
+        // $stmt2 = $pdo->prepare($query);
+        // $stmt2->execute();
     
-        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // $users = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+    
+        // echo sizeof($users);
+        // foreach($users as $user){
+        //     echo $user["name"];
+        //     echo $user["email"];
+        //     // $id = $article['id'];
+        $countStmt->bindParam(':email', $email);
+        $countStmt->execute();
+        $count = $countStmt->fetchColumn();
+        // echo $count;
+        if($count == 1){
+            echo("User with email: " . $email . " already has an account! <br>");
+            // echo ($email);
+
+        }else{
+
+            session_start();
+            $_SESSION["userName"] = $userName;
+            $_SESSION["userEmail"] = $email;
+            $_SESSION["userGamesPlayed"] = 0;
+            $_SESSION["userScore"] = 0;
+
+            $stmt->bindValue(':userName', $userName);
+            $stmt->bindValue(':email', $email);
+            $stmt->bindValue(':userPassword', $hashedPassword);
+            $stmt->bindValue(':gamesPlayed', 0);
+            $stmt->bindValue(':score', 0);
+            $stmt->execute();
+               
+        
+            echo "Account created successfully!";
+        }
+    
+            
+        
+
+
+        // $query = "SELECT * FROM users";
+        // $stmt = $pdo->prepare($query);
+        
+        // $stmt->execute();
+    
+        // $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         // foreach ($users as $user) {
         //     // Bind values to the placeholders in the SQL query
@@ -61,5 +100,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
+
+    // foreach($users as $user){
+    //     if($email === $user['email']){
+    //         break;
+    //     }
+    // }
 }
 ?>
