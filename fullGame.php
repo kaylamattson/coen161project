@@ -21,7 +21,7 @@
         exit;
     }
 
-    // retreive one of our games
+    // retreive one of our games.
     $game = null;
     foreach ($data['ourGames'] as $item) {
         if (isset($item['id']) && $item['id'] == $game_id) {
