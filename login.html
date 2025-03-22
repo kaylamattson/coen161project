@@ -22,29 +22,18 @@
         </div>
 
         <div class = "container">
-            <!-- only change was id header from steph -->
             <h1 id = "loginHeader" >Login to DIY Connections</h1>
 
             <form action = "login.php" method = "POST">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
 
-                <!-- Password with Toggle -->
                 <label for="password">Password:</label>
                 <div class="password-container">
                     <input type="password" id="password" name="password" required>
                     <button type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
                 </div>
 
-                <!-- Remember Me -->
-                <label class="remember-me">
-                    <input type="checkbox" name="remember"> Remember Me
-                </label>
-
-                <!-- Forgot Password -->
-                <a href="reset-password.html" class="forgot-password">Forgot Password?</a>
-
-                <!-- Submit Button -->
                 <button type="submit">Login</button>
             </form>
             <p>Don't have an account? <a href="createAccount.html">Sign up here</a></p>

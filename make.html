@@ -25,115 +25,70 @@
     
         <div class = "container">
             <h1>Create your own game here!</h1>
-            <p>Instructions: Type a category followed by the corresponding four words in that category and then repeat until you have entered four categories and sixteen words. <br> <br> 
-                Make sure that the four words after a category correspond to that category! <br> <br> 
-                If you would like to remove a word, you can click on it and then enter a new one.</p>
+            <p>Instructions: Type your title, then a category followed by four words and repeat until you have entered four categories and sixteen words. <br> <br> 
+            </p>
             
             <form action="make.php" method="POST">
-                
-                <label for="title">Enter title of your new game!:</label>
-                <input id="titleInput" type="text" name="title" placeholder="Enter your title..." required>
-                
-                <!-- <h3></h3> -->
+                <div class="form-group">
+                    <label for="title">Game Title:</label>
+                    <input id="titleInput" type="text" name="title" placeholder="Enter your title..." required>
+                </div>
+
                 <!-- category 1 -->
-                <br>
-                <label for="cat1"><strong>Enter your first Category:</strong></label>
-                <input id="cat1" type="text" name="cat1" placeholder="Enter your category 1..." required>
-                <br>
-                <label for="c1item1">Enter your first word for your first Category:</label>
-                <input id="c1item1" type="text" name="c1item1" placeholder="Enter your first word..." required>
-                <br>
-                <label for="c1item2">Enter your second word for your first Category:</label>
-                <input id="c1item2" type="text" name="c1item2" placeholder="Enter your second word..." required>
-                <br>
-                <label for="c1item3">Enter your third word for your first Category:</label>
-                <input id="c1item3" type="text" name="c1item3" placeholder="Enter your third word..." required>
-                <br>
-                <label for="c1item4">Enter your fourth word for your first Category:</label>
-                <input id="c1item4" type="text" name="c1item4" placeholder="Enter your fourth word..." required>
-                <br>
+                <div class="form-group">
+                    <label for="cat1"><strong>Category 1:</strong></label>
+                    <input id="cat1" type="text" name="cat1" placeholder="Enter category 1..." required>
+                </div>
+
+                <div class="form-group words">
+                    
+                    <input id="c1item1" type="text" name="c1item1" placeholder="Word 1" required>
+                    <input id="c1item2" type="text" name="c1item2" placeholder="Word 2" required>
+                    <input id="c1item3" type="text" name="c1item3" placeholder="Word 3" required>
+                    <input id="c1item4" type="text" name="c1item4" placeholder="Word 4" required>
+                </div>
                 <!-- category 2 -->
-                <br>
-                <label for="cat2"><strong>Enter your second Category:</strong></label>
-                <input id="cat2" type="text" name="cat2" placeholder="Enter your category 2..." required>
-                <br>
-                <label for="c2item1">Enter your first word for your second Category:</label>
-                <input id="c2item1" type="text" name="c2item1" placeholder="Enter your first word..." required>
-                <br>
-                <label for="c2item2">Enter your second word for your second Category:</label>
-                <input id="c2item2" type="text" name="c2item2" placeholder="Enter your second word..." required>
-                <br>
-                <label for="c2item3">Enter your third word for your second Category:</label>
-                <input id="c2item3" type="text" name="c2item3" placeholder="Enter your third word..." required>
-                <br>
-                <label for="c2item4">Enter your fourth word for your second Category:</label>
-                <input id="c2item4" type="text" name="c2item4" placeholder="Enter your fourth word..." required>
-
-                <br>
-                <br>
-                <!-- category 3 -->
-                <label for="cat3"><strong>Enter your third Category:</strong></label>
-                <input id="cat3" type="text" name="cat3" placeholder="Enter your category 3..." required>
-                <br>
-                <label for="c3item1">Enter your first word for your third Category:</label>
-                <input id="c3item1" type="text" name="c3item1" placeholder="Enter your first word..." required>
-                <br>
-                <label for="c3item2">Enter your second word for your third Category:</label>
-                <input id="c3item2" type="text" name="c3item2" placeholder="Enter your second word..." required>
-                <br>
-                <label for="c3item3">Enter your third word for your third Category:</label>
-                <input id="c3item3" type="text" name="c3item3" placeholder="Enter your third word..." required>
-                <br>
-                <label for="c3item4">Enter your fourth word for your third Category:</label>
-                <input id="c3item4" type="text" name="c3item4" placeholder="Enter your fourth word..." required>
                 
-                <br>
-                <br>
-                <!-- category 4 -->
-                <label for="cat4"><strong>Enter your fourth Category:</strong></label>
-                <input id="cat4" type="text" name="cat4" placeholder="Enter your category 4..." required>
-                <br>
-                <label for="c4item1">Enter your first word for your fourth Category:</label>
-                <input id="c4item1" type="text" name="c4item1" placeholder="Enter your first word..." required>
-                <br>
-                <label for="c4item2">Enter your second word for your fourth Category:</label>
-                <input id="c4item2" type="text" name="c4item2" placeholder="Enter your second word..." required>
-                <br>
-                <label for="c4item3">Enter your third word for your fourth Category:</label>
-                <input id="c4item3" type="text" name="c4item3" placeholder="Enter your third word..." required>
-                <br>
-                <label for="c4item4">Enter your fourth word for your fourth Category:</label>
-                <input id="c4item4" type="text" name="c4item4" placeholder="Enter your fourth word..." required>
-                <br>
+                <div class="form-group">
+                    <label for="cat2"><strong>Category 2:</strong></label>
+                    <input id="cat2" type="text" name="cat2" placeholder="Enter category 2..." required>
+                </div>
+                <div class="form-group words">
+                    <input id="c2item1" type="text" name="c2item1" placeholder="Word 1" required>
+                    <input id="c2item2" type="text" name="c2item2" placeholder="Word 2" required>
+                    <input id="c2item3" type="text" name="c2item3" placeholder="Word 3" required>
+                    <input id="c2item4" type="text" name="c2item4" placeholder="Word 4" required>
+                </div>
 
-                <!-- <h3>Enter your words(16):</h3>
-                <label for="email">Email:</label>
-                <input id="wordInput" type="text" placeholder="Enter four words..." required> -->
+                <!-- category 3 -->
+                <div class="form-group">
+                    <label for="cat3"><strong>Category 3:</strong></label>
+                    <input id="cat3" type="text" name="cat3" placeholder="Enter category 3..." required>
+                </div>
+
+                <div class="form-group words">
+                    <input id="c3item1" type="text" name="c3item1" placeholder="Word 1" required>
+                    <input id="c3item2" type="text" name="c3item2" placeholder="Word 2" required>
+                    <input id="c3item3" type="text" name="c3item3" placeholder="Word 3" required>
+                    <input id="c3item4" type="text" name="c3item4" placeholder="Word 4" required>
+                </div>
+
+                <!-- category 4 -->
+                <div class="form-group">
+                    <label for="cat4"><strong>Category 4:</strong></label>
+                    <input id="cat4" type="text" name="cat4" placeholder="Enter category 4..." required>
+                </div>
+                <div class="form-group words">
+                    <input id="c4item1" type="text" name="c4item1" placeholder="Word 1" required>
+                    <input id="c4item2" type="text" name="c4item2" placeholder="Word 2" required>
+                    <input id="c4item3" type="text" name="c4item3" placeholder="Word 3" required>
+                    <input id="c4item4" type="text" name="c4item4" placeholder="Word 4" required>
+                </div>
 
                 <button type="submit">Create game!</button>
 
             </form>
-            <!-- <div class = "enteredWordsContainer" id="titleContainer"></div>
 
-            <div class = "categoryContainer" id = "cat1">
-                <div id="categoryButton1" class="categoryButton"></div>
-                <div class = "enteredWordsContainer" id="wordsContainer1"></div>
-            </div>
-
-            <div class = "categoryContainer" id = "cat2">
-                <div id="categoryButton2" class="categoryButton"></div>
-                <div class = "enteredWordsContainer" id="wordsContainer2"></div>
-            </div>
-
-            <div class = "categoryContainer" id = "cat3">
-                <div id="categoryButton3" class="categoryButton"></div>
-                <div class = "enteredWordsContainer" id="wordsContainer3"></div>
-            </div>
-
-            <div class = "categoryContainer" id = "cat4">
-                <div id="categoryButton4" class="categoryButton"></div>
-                <div class = "enteredWordsContainer" id="wordsContainer4"></div>
-            </div> -->
 
             <div id = "hidden">
                <p id = "0"> </p>

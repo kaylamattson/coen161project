@@ -1,4 +1,4 @@
-/* Center the login form */
+
 .container {
     background: white;
     max-width: 400px;
@@ -9,32 +9,27 @@
     text-align: center;
 }
 
-/* Title */
 h1 {
     color: var(--blue);
     margin-bottom: 20px;
 }
 
-/* added by steph */
 .errorTxt{
     color: red;
 }
 
-/* Style form elements */
 form {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-/* Style labels */
 label {
     text-align: left;
     font-weight: bold;
     color: var(--blue);
 }
 
-/* Input fields */
 input {
     width: 100% -5px;
     padding: 10px;
@@ -43,7 +38,6 @@ input {
     font-size: 16px;
 }
 
-/* Password container with toggle button */
 .password-container {
     position: relative;
     display: flex;
@@ -69,7 +63,6 @@ input {
     width: 10%;
 }
 
-/* Remember Me Checkbox */
 .remember-me {
     display: flex;
     align-items: center;
@@ -77,7 +70,6 @@ input {
     font-size: 14px;
 }
 
-/* Forgot Password */
 .forgot-password {
     text-decoration: none;
     color: var(--pink);
@@ -91,7 +83,6 @@ input {
     text-decoration: underline;
 }
 
-/* Login button */
 button {
     width: 100%;
     background: var(--blue);
@@ -108,7 +99,6 @@ button:hover {
     background: #0c3a3f;
 }
 
-/* Sign up link */
 p {
     font-size: 14px;
 }
