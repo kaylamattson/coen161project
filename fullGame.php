@@ -3,7 +3,6 @@
 
     $game_id = $_GET['id'] ?? null;
     if ($game_id === null) {
-        //echo "Error: Article ID not found.";
         exit(); 
     }
 
@@ -15,21 +14,7 @@
         try{
             $pdo = new PDO('sqlite:' . $databaseFile);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            //AUTO_INCREMENT ?
-            // echo "helo";
-            // $table = "CREATE TABLE IF NOT EXISTS games ( 
-            //     title TEXT NOT NULL, 
-            //     group1 TEXT NOT NULL,
-            //     items1 TEXT NOT NULL,
-            //     group2 TEXT NOT NULL,
-            //     items2 TEXT NOT NULL,
-            //     group3 TEXT NOT NULL,
-            //     items3 TEXT NOT NULL,
-            //     group4 TEXT NOT NULL,
-            //     items4 TEXT NOT NULL
-                
-            // )";
-           
+        
             $sql = "SELECT * FROM games"; //get all games created
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
