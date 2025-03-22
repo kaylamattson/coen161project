@@ -44,7 +44,7 @@ function cardClicked(event) {
     clickedCards.push(cardInfo);
     console.log("clicked cards length", clickedCards.length);
     if (clickedCards.length >= 4) {
-        console.log("NO MOE SPACE");
+        console.log("NO MORE SPACE");
         const submitBtn = document.getElementById('submit-btn');
         submitBtn.classList.toggle("active");
         return;
@@ -93,9 +93,9 @@ function submitConnection() {
     }
 }
 
-function winGame() {
+// function winGame() {
 
-}
+// }
 
 function gameOver() {
     /*
@@ -123,7 +123,7 @@ function gameOver() {
         document.getElementById('title').textContent = "Great Job!";
     }
     if (mistakesRemaining == 0) {
-        document.getElementById('title').textContent = "Next Time!";
+        document.getElementById('title').textContent = "Try again next Time!";
     }
 
     document.getElementById('completed').textContent = numWins;
@@ -131,6 +131,28 @@ function gameOver() {
         document.getElementById('completed').textContent = 0;
     }
     document.getElementById('winPercent').textContent = (numWins/4)*100;
+
+
+    
+    //start
+
+    // script.js
+    fetch('gameover.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            numwin: numWins
+            
+        })
+    })
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+
+
+    //finish
 }
 
 function viewResults() {
@@ -194,7 +216,7 @@ function shuffle() {
     const container = document.getElementById('cardContainer');
     const boxes = Array.from(container.getElementsByClassName('box'));
 
-    for (let i = boxes.length - 1; i > 0; i--) {
+    for (let i = boxes.length - 1; i > 0; i--) {//add an >=??
         const j = Math.floor(Math.random() * (i + 1));
         [boxes[i], boxes[j]] = [boxes[j], boxes[i]]; // Swap elements
     }

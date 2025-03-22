@@ -6,7 +6,10 @@
         //echo "Error: Article ID not found.";
         exit(); 
     }
-    if($game_id == 6){
+
+    
+    // $tester = 1;
+    // if($tester == 1){
         //echo "YAY!";
         $databaseFile = 'games.db';
         try{
@@ -32,19 +35,26 @@
             $stmt->execute();
     
             $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $game1 = $games[0];
+            foreach($games as $game){
+                if($game["id"] == $game_id){
+                    //echo $game_id;
+                    $playingGame = $game;
+                    break;
+                }
+            }
+            //$playingGame = $games[0];
         
-            // echo $game1["group1"] . "\n";
-            // echo $game1["items1"] . "\n";
+            // echo $playingGame["group1"] . "\n";
+            // echo $playingGame["items1"] . "\n";
 
-            // echo $game1["group2"] . "\n";
-            // echo $game1["items2"] . "\n";
+            // echo $playingGame["group2"] . "\n";
+            // echo $playingGame["items2"] . "\n";
 
-            // echo $game1["group3"] . "\n";
-            // echo $game1["items3"] . "\n";
+            // echo $playingGame["group3"] . "\n";
+            // echo $playingGame["items3"] . "\n";
 
-            // echo $game1["group4"] . "\n";
-            // echo $game1["items4"] . "\n";
+            // echo $playingGame["group4"] . "\n";
+            // echo $playingGame["items4"] . "\n";
 
             
         }catch (PDOException $e) {
@@ -57,38 +67,38 @@
 
         // insert title
         $title = $dom->getElementById('title');
-        $title->nodeValue = $game1['title'];
+        $title->nodeValue = $playingGame['title'];
 
         //merge all groups into one array
         
-        $group1 = $game1['group1'];
-        $group2 = $game1['group2'];
-        $group3 = $game1['group3'];
-        $group4 = $game1['group4'];
+        $group1 = $playingGame['group1'];
+        $group2 = $playingGame['group2'];
+        $group3 = $playingGame['group3'];
+        $group4 = $playingGame['group4'];
         
 
         //insert the groupNames for when a connection is successful
         $success = $dom->getElementById('success1');
-        $success->textContent = $game1['group1'];
-        $success->setAttribute('data-name',$game1['group1']);
+        $success->textContent = $playingGame['group1'];
+        $success->setAttribute('data-name',$playingGame['group1']);
         
         $success = $dom->getElementById('success2');
-        $success->textContent = $game1['group2'];
-        $success->setAttribute('data-name',$game1['group2']);
+        $success->textContent = $playingGame['group2'];
+        $success->setAttribute('data-name',$playingGame['group2']);
 
         $success = $dom->getElementById('success3');
-        $success->textContent = $game1['group3'];
-        $success->setAttribute('data-name',$game1['group3']);
+        $success->textContent = $playingGame['group3'];
+        $success->setAttribute('data-name',$playingGame['group3']);
 
         $success = $dom->getElementById('success4');
-        $success->textContent = $game1['group4'];
-        $success->setAttribute('data-name',$game1['group4']);
+        $success->textContent = $playingGame['group4'];
+        $success->setAttribute('data-name',$playingGame['group4']);
 
 
-        $items1 = explode(",", $game1['items1']);
-        $items2 = explode(",", $game1['items2']);
-        $items3 = explode(",", $game1['items3']);
-        $items4 = explode(",", $game1['items4']);
+        $items1 = explode(",", $playingGame['items1']);
+        $items2 = explode(",", $playingGame['items2']);
+        $items3 = explode(",", $playingGame['items3']);
+        $items4 = explode(",", $playingGame['items4']);
 
         $cardArray = array_merge($items1, $items2, $items3, $items4);
         shuffle($cardArray);
@@ -102,114 +112,114 @@
             
             if (in_array($card, $items1)) {
                 $buttonEl->setAttribute('data-group-id', '1');
-                $buttonEl->setAttribute('data-group-name', $game1['group1']);
+                $buttonEl->setAttribute('data-group-name', $playingGame['group1']);
             }
             elseif (in_array($card, $items2)) {
                 $buttonEl->setAttribute('data-group-id', '2');
-                $buttonEl->setAttribute('data-group-name', $game1['group2']);
+                $buttonEl->setAttribute('data-group-name', $playingGame['group2']);
             }
             elseif (in_array($card, $items3)) {
                 $buttonEl->setAttribute('data-group-id', '3');
-                $buttonEl->setAttribute('data-group-name', $game1['group3']);
+                $buttonEl->setAttribute('data-group-name', $playingGame['group3']);
             }
             elseif (in_array($card, $items4)) {
                 $buttonEl->setAttribute('data-group-id', '4');
-                $buttonEl->setAttribute('data-group-name', $game1['group4']);
+                $buttonEl->setAttribute('data-group-name', $playingGame['group4']);
             }
 
             $cardContainer->appendChild($buttonEl);
         }
 
-    }else{
+   // }else{
 
     
         //echo("WHYY?");
-        $filename = 'madeGames.json';
+        // $filename = 'madeGames.json';
 
-        if (!file_exists($filename)) {
-            echo "Error: File not found";
-            exit;
-        }
+        // if (!file_exists($filename)) {
+        //     echo "Error: File not found";
+        //     exit;
+        // }
 
-        $json = file_get_contents($filename);
-        $data = json_decode($json, true);
-        if ($data == null) {
-            echo "Error: Decoding failed";
-            exit;
-        }
+        // $json = file_get_contents($filename);
+        // $data = json_decode($json, true);
+        // if ($data == null) {
+        //     echo "Error: Decoding failed";
+        //     exit;
+        // }
 
-        // retreive one of our games.
-        $game = null;
-        foreach ($data as $item) {
-            if (isset($item['id']) && $item['id'] == $game_id) {
-                $game = $item;
-                break;
-            }
-        }
+        // // retreive one of our games.
+        // $game = null;
+        // foreach ($data as $item) {
+        //     if (isset($item['id']) && $item['id'] == $game_id) {
+        //         $game = $item;
+        //         break;
+        //     }
+        // }
 
-        $filename = 'fullGame.html';
-        $dom = new DOMDocument();
-        $dom->loadHTMLFile($filename);
+        // $filename = 'fullGame.html';
+        // $dom = new DOMDocument();
+        // $dom->loadHTMLFile($filename);
 
-        // insert title
-        $title = $dom->getElementById('title');
-        $title->nodeValue = $game['title'];
+        // // insert title
+        // $title = $dom->getElementById('title');
+        // $title->nodeValue = $game['title'];
 
         //merge all groups into one array
         
-        $group1 = $game['group1'];
-        $group2 = $game['group2'];
-        $group3 = $game['group3'];
-        $group4 = $game['group4'];
+        // $group1 = $game['group1'];
+        // $group2 = $game['group2'];
+        // $group3 = $game['group3'];
+        // $group4 = $game['group4'];
         
 
-        //insert the groupNames for when a connection is successful
-        $success = $dom->getElementById('success1');
-        $success->textContent = $game['group1'];
-        $success->setAttribute('data-name',$game['group1']);
+        // //insert the groupNames for when a connection is successful
+        // $success = $dom->getElementById('success1');
+        // $success->textContent = $game['group1'];
+        // $success->setAttribute('data-name',$game['group1']);
         
-        $success = $dom->getElementById('success2');
-        $success->textContent = $game['group2'];
-        $success->setAttribute('data-name',$game['group2']);
+        // $success = $dom->getElementById('success2');
+        // $success->textContent = $game['group2'];
+        // $success->setAttribute('data-name',$game['group2']);
 
-        $success = $dom->getElementById('success3');
-        $success->textContent = $game['group3'];
-        $success->setAttribute('data-name',$game['group3']);
+        // $success = $dom->getElementById('success3');
+        // $success->textContent = $game['group3'];
+        // $success->setAttribute('data-name',$game['group3']);
 
-        $success = $dom->getElementById('success4');
-        $success->textContent = $game['group4'];
-        $success->setAttribute('data-name',$game['group4']);
+        // $success = $dom->getElementById('success4');
+        // $success->textContent = $game['group4'];
+        // $success->setAttribute('data-name',$game['group4']);
 
-        $cardArray = array_merge($game['items1'], $game['items2'], $game['items3'], $game['items4']);
-        shuffle($cardArray);
+        // $cardArray = array_merge($game['items1'], $game['items2'], $game['items3'], $game['items4']);
+        // shuffle($cardArray);
 
-        // insert the cards in a randomized order
-        $cardContainer = $dom->getElementById('cardContainer');
-        foreach($cardArray as $card) {
-            $buttonEl = $dom->createElement('button',$card);
-            $buttonEl->setAttribute('type','button');
-            $buttonEl->setAttribute('class', 'box');
+        // // insert the cards in a randomized order
+        // $cardContainer = $dom->getElementById('cardContainer');
+        // foreach($cardArray as $card) {
+        //     $buttonEl = $dom->createElement('button',$card);
+        //     $buttonEl->setAttribute('type','button');
+        //     $buttonEl->setAttribute('class', 'box');
             
-            if (in_array($card, $game['items1'])) {
-                $buttonEl->setAttribute('data-group-id', '1');
-                $buttonEl->setAttribute('data-group-name', $game['group1']);
-            }
-            elseif (in_array($card, $game['items2'])) {
-                $buttonEl->setAttribute('data-group-id', '2');
-                $buttonEl->setAttribute('data-group-name', $game['group2']);
-            }
-            elseif (in_array($card, $game['items3'])) {
-                $buttonEl->setAttribute('data-group-id', '3');
-                $buttonEl->setAttribute('data-group-name', $game['group3']);
-            }
-            elseif (in_array($card, $game['items4'])) {
-                $buttonEl->setAttribute('data-group-id', '4');
-                $buttonEl->setAttribute('data-group-name', $game['group4']);
-            }
+            // if (in_array($card, $game['items1'])) {
+            //     $buttonEl->setAttribute('data-group-id', '1');
+            //     $buttonEl->setAttribute('data-group-name', $game['group1']);
+            // }
+            // elseif (in_array($card, $game['items2'])) {
+            //     $buttonEl->setAttribute('data-group-id', '2');
+            //     $buttonEl->setAttribute('data-group-name', $game['group2']);
+            // }
+            // elseif (in_array($card, $game['items3'])) {
+            //     $buttonEl->setAttribute('data-group-id', '3');
+            //     $buttonEl->setAttribute('data-group-name', $game['group3']);
+            // }
+            // elseif (in_array($card, $game['items4'])) {
+            //     $buttonEl->setAttribute('data-group-id', '4');
+            //     $buttonEl->setAttribute('data-group-name', $game['group4']);
+            // }
 
-            $cardContainer->appendChild($buttonEl);
-        }
-    }
+            // $cardContainer->appendChild($buttonEl);
+       // }
+   //}
     
     // send html file
     header('Content-Type: text/html');
