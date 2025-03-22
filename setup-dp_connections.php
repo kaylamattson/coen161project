@@ -6,8 +6,6 @@ $databaseFile = 'games.db';
 try{
     $pdo = new PDO('sqlite:' . $databaseFile);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-     //AUTO_INCREMENT ?
-    //echo "helo";
 
     $idCounter = 0;
 
@@ -26,7 +24,6 @@ try{
         
     )";
     // changed userName and userPassword
-   // echo "ELLO";
     $pdo->exec($table);
     echo "Database created successfully. <br> <br>";
 
@@ -41,24 +38,6 @@ try{
            
     $insertQuery = "INSERT INTO games (id, title, group1, items1, group2, items2, group3, items3, group4, items4 ) VALUES (:id, :title, :group1, :items1, :group2, :items2, :group3, :items3, :group4, :items4)";
     $stmt = $pdo->prepare($insertQuery);
-
-            // $items1 = $item11 . ", " . $item12 . ", " . $item13 . ", " . $item14;
-            // $items2 = $item21 . ", " . $item22 . ", " . $item23 . ", " . $item24;
-            // $items3 = $item31 . ", " . $item32 . ", " . $item33 . ", " . $item34;
-            // $items4 = $item41 . ", " . $item42 . ", " . $item43 . ", " . $item44;
-            // $stmt->bindValue(':title', $title);
-            // $stmt->bindValue(':group1', $cat1);
-            // $stmt->bindValue(':items1', $items1);
-            // $stmt->bindValue(':group2', $cat2);
-            // $stmt->bindValue(':items2', $items2);
-            // $stmt->bindValue(':group3', $cat3);
-            // $stmt->bindValue(':items3', $items3);
-            // $stmt->bindValue(':group4', $cat4);
-            // $stmt->bindValue(':items4', $items4);
-
-
-            // $stmt->execute();
-
     $countQuery = "SELECT count(*) FROM games WHERE title = :title";
     $countStmt = $pdo->prepare($countQuery);
            
@@ -76,7 +55,6 @@ try{
         }else{
             $id = $idCounter;
             $idCounter++;
-            //$title = $article['title'];
             $group1 = $game['group1'];
             $items1 = implode(",", $game['items1']);
 
@@ -101,7 +79,6 @@ try{
             $stmt->bindValue(':group4', $group4);
             $stmt->bindValue(':items4', $items4);
                     
-            //$tags = is_array($article['tags']) ? implode(",", $article['tags']) : $article['tags'];
             $stmt->execute();
         
 
@@ -112,8 +89,7 @@ try{
                 
     }
     echo "<br> pre-made games in JSON file were loaded into database! <br>";
-    //echo sizeof($games);
-    
+
 }catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }

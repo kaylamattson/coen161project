@@ -1,10 +1,7 @@
 <?php
-   
-   // your-php-script.php
    $data = json_decode(file_get_contents('php://input'), true);
    
    $numWins = $data['numwin'] ?? 'undefined';
-   //$age = $data['age'] ?? 'undefined';
 
    session_start();
 
@@ -42,8 +39,6 @@
         $stmt = $pdo->prepare($updateQuery);
 
         // Bind values
-        //$stmt->bindValue(':userName', $newUserName);
-        //$stmt->bindValue(':userPassword', $newUserPassword);
         $stmt->bindValue(':gamesPlayed', $numGamesPlayed, PDO::PARAM_INT);
         $stmt->bindValue(':score', $userScore, PDO::PARAM_INT);
         $stmt->bindValue(':email', $userEmail);
@@ -61,11 +56,6 @@
         } else {
             echo "No user found with email '$userEmail', or no changes were made. <br>";
         }
-
-
-            // $pdo = new PDO('sqlite:connection.db');
-            // $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $sql = "SELECT * FROM users WHERE email = :email";
             $stmt1 = $pdo->prepare($sql);
             $stmt1->bindParam(':email', $userEmail);
@@ -73,9 +63,6 @@
         
             $users = $stmt1->fetchAll(PDO::FETCH_ASSOC);
 
-            // foreach($users as $user){
-                
-            // }
             $user = $users[0];
             echo $userName;
             echo $userEmail;
@@ -86,24 +73,8 @@
         $_SESSION["userGamesPlayed"] = $numGamesPlayed;
         $_SESSION["userScore"] = $userScore;
 
-        //$numGamesPlayed = $_SESSION["userGamesPlayed"];
-        //$userScore = $_SESSION["userScore"];
-    // Response
-    //echo "Hello, NUM WINS: {$numWins}";
-   
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     } 
-
-
-    // $filename = "newGame.html";//idk man maybe do a new page then press continue and send to somewhere else
-    //         if(!(file_exists($filename))){
-    //             echo "FILE: $filename does NOT exists";
-    //             exit;
-    //         };
-
-            
-    //         $dom = new DOMDocument();
-    //         $dom->loadHTMLFile($filename);
 
 ?>

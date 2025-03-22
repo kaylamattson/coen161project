@@ -49,13 +49,6 @@ function cardClicked(event) {
         submitBtn.classList.toggle("active");
         return;
     }
-
-    /*
-    console.log("clickedCardsData", clickedCardsData);
-    console.log("clickedCardText", clickedCardText);
-    clickedCards.push(clickedCardText);
-    console.log(clickedCards);
-    */
 }
 
 // check if each element in the connection matches the correct answer. if yes, add
@@ -93,16 +86,7 @@ function submitConnection() {
     }
 }
 
-// function winGame() {
-
-// }
-
 function gameOver() {
-    /*
-    document.getElementById('cardContainer').style.display = "none";
-    document.getElementById('mistakes').style.display = "none";
-    document.getElementById('resultsContainer').style.display = "block";
-    */
     document.getElementById('success1').style.display = "block";
     document.getElementById('success2').style.display = "block";
     document.getElementById('success3').style.display = "block";
@@ -132,8 +116,6 @@ function gameOver() {
     }
     document.getElementById('winPercent').textContent = (numWins/4)*100;
 
-
-    
     //start
 
     // script.js
@@ -272,13 +254,6 @@ function initialize() {
 
     const deselectPressed = document.getElementById('deselect-btn');
     deselectPressed.addEventListener("click", deselectBtn);
-
-    // const cardClicked = document.getElementById('card');
-    /*
-    if (cardClicked) {
-        cardClicked.addEventListener("click", switchCardBackground);
-    }
-    */
 }
 
 document.addEventListener('DOMContentLoaded', initialize);
