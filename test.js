@@ -1,4 +1,5 @@
 // script.js
+/*
 fetch('gameover.php', {
     method: 'POST',
     headers: {
@@ -12,3 +13,4 @@ fetch('gameover.php', {
 .then(response => response.text())
 .then(data => console.log(data))
 .catch(error => console.error('Error:', error));
+*/

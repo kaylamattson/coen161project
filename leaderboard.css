@@ -1,12 +1,14 @@
 .container {
-    width: 80%;
-    margin: 30px auto;
+    width: 85%;
+    max-width: 900px;
+    margin: 40px auto;
     background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     text-align: center;
 }
+
 
 h1 {
     color: var(--blue);
@@ -15,32 +17,47 @@ h1 {
 .leaderboard {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 25px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--gray);
 }
 
 .leaderboard th, .leaderboard td {
-    border: 1px solid #ddd;
-    padding: 12px 20px;
+    padding: 14px 22px;
     text-align: center;
 }
+
 
 .leaderboard th {
     background-color: var(--blue);
     color: white;
+    font-size: 18px;
     font-weight: bold;
+    text-transform: uppercase;
 }
+
 
 .leaderboard tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: rgba(158, 197, 171, 0.3);
+}
+.leaderboard tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
-.leaderboard tr:hover {
-    background-color: #f1f1f1;
-}
 
 .leaderboard td {
     color: #333;
 }
+
+h2 {
+    font-size: 32px;
+    color: var(--blue);
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+}
+
 
 @media (max-width: 768px) {
     .topnav a {

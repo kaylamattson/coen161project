@@ -1,67 +1,42 @@
-.playButton{
-    width: 500px;
-    margin: auto;
-    padding: auto;
-    background-color: var(--mint);
-    color: var(--blue);
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-.gameMsg{
+/* General Styling */
+.container {
+    font-family: 'Arial', sans-serif;
+    color: #333;
     text-align: center;
-}
-
-.button{
-    background-color: var(--mint);
-    color: var(--blue);
-    width: 50%;
-    text-align: center;
-}
-
-.home-header{
-    text-align: center;
-    font-size: 1.5rem;
-    background-color: var(--mint);
-    color: var(--blue);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-.container{
-    background-color: var(--tan);
-    display: flex; 
-    flex-wrap: wrap;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 30px;
-    padding: 4%;
-    max-width: 600px;
-    margin: 2px auto;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 3%;
 }
-.box{
-    background-color: var(--tan);
-    color: var(--blue);
-    padding: 20px;
-    width: 270px;
-    height: 100px;
-    font-size: 2em;
+/* Game Message */
+#newGameDisplay {
+    background-color: var(--blue);
+    color: white;
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 80px;
+}
+
+/* Play Button */
+#playButton button {
+    background-color: var(--pink);
+    color: white;
+    padding: 18px 32px;
+    font-size: 24px;
     font-weight: bold;
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
-}
-.box:hover {
-    background-color: var(--pink);
-    transform: scale(1.05);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+    margin-top: 20px;
 }
 
-#userGreeting h3{
-    text-align: center;
-    
+#playButton button:hover {
+    background-color: var(--blue);
+    transform: scale(1.1);
 }
-
