@@ -8,6 +8,7 @@ $databaseFile = 'connection.db';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // echo "hi1";
     // Collect and sanitize input
+    
     $userName = htmlspecialchars($_POST['userName']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $email = strtolower($email);

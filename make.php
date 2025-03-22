@@ -57,6 +57,7 @@
         //change below
         try {
             //change!!
+
             $title = $_POST['title'];
             $cat1 = $_POST['cat1'];
             $item11 = $_POST['c1item1'];
@@ -96,16 +97,32 @@
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // $id  = "1";
 
-
+            $query = "SELECT * FROM games";
+            $stmt2 = $pdo->prepare($query);
+            $stmt2->execute();
+        
+            
+            $countQuery = "SELECT count(*) FROM games";
+            $stmtCount = $pdo->prepare($countQuery);
+            $stmtCount->execute();
+            $IDindex = $stmtCount->fetchColumn();
+            //$newID = $IDindex 
+            echo($IDindex);
+        
 
            
-            $insertQuery = "INSERT INTO games (title, group1, items1, group2, items2, group3, items3, group4, items4 ) VALUES (:title, :group1, :items1, :group2, :items2, :group3, :items3, :group4, :items4)";
+            $insertQuery = "INSERT INTO games (id, title, group1, items1, group2, items2, group3, items3, group4, items4 ) VALUES (:id, :title, :group1, :items1, :group2, :items2, :group3, :items3, :group4, :items4)";
             $stmt = $pdo->prepare($insertQuery);
 
             $items1 = $item11 . ", " . $item12 . ", " . $item13 . ", " . $item14;
             $items2 = $item21 . ", " . $item22 . ", " . $item23 . ", " . $item24;
             $items3 = $item31 . ", " . $item32 . ", " . $item33 . ", " . $item34;
             $items4 = $item41 . ", " . $item42 . ", " . $item43 . ", " . $item44;
+    
+            
+
+        
+            $stmt->bindValue(':id', $IDindex);
             $stmt->bindValue(':title', $title);
             $stmt->bindValue(':group1', $cat1);
             $stmt->bindValue(':items1', $items1);
@@ -119,22 +136,22 @@
 
             $stmt->execute();
 
-            $query = "SELECT * FROM games";
-            $stmt2 = $pdo->prepare($query);
-            $stmt2->execute();
+            //$query = "SELECT * FROM games";
+            //$stmt2 = $pdo->prepare($query);
+            //$stmt2->execute();
         
             
             // $query1 = "SELECT count(*) FROM games";
             // $stmt1 = $pdo->prepare($query1);
             // $stmt->execute();
-            $games = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+            //$games = $stmt2->fetchAll(PDO::FETCH_ASSOC);
         
             //echo sizeof($users);
-            foreach($games as $game){
-                echo $game["title"];
-                echo $game["items1"];
-                // $id = $article['id'];
-            }
+            // foreach($games as $game){
+            //     echo $game["title"];
+            //     echo $game["items1"];
+            //     // $id = $article['id'];
+            // }
         
 
         } catch (Exception $e) {
@@ -143,9 +160,12 @@
         }
 
 
+
+        
+        //echo $game['id']
         
        
-        $filename = "home.html";//idk man maybe do a new page then press continue and send to somewhere else
+        $filename = "newGame.html";//idk man maybe do a new page then press continue and send to somewhere else
         if(!(file_exists($filename))){
             echo "FILE: $filename does NOT exists";
             exit;
@@ -163,7 +183,12 @@
         //     // $id = $article['id'];
         // }
         // echo "HI?";
-        
+        $buttonContainer = $dom->getElementById("playButton");
+        $buttonEl = $dom->createElement('button');
+        $buttonEl->setAttribute('type','button');
+        $buttonEl->setAttribute('class', 'game-item');
+        $buttonEl->setAttribute('onclick', "window.location.href='fullGame.php?id=" . $IDindex . "'");
+        $buttonContainer->appendChild($buttonEl);
     
 
         
@@ -171,8 +196,8 @@
         header('Content-Type: text/html');
         echo $dom->saveHTML();
 
-
     }
-    ?>
+    
+?>
 
 
